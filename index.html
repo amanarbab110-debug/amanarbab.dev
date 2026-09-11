@@ -1,4 +1,10 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman | Portfolio</title>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -6,34 +12,26 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Yahan speed tez aur motion ko dynamic kar diya hai */
-        @keyframes moveBackground {
-            0% {
-                background-position: 0% 0%;
-            }
-            50% {
-                background-position: 100% 100%;
-            }
-            100% {
-                background-position: 0% 0%;
-            }
-        }
-
         body {
-            background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(5, 8, 15, 0.75)), 
-                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80');
-            /* Size bada kiya hai taake movement saaf dikhe aur time 8 seconds kar diya hai taake tez move ho */
-            background-size: 250% 250%;
-            background-repeat: no-repeat;
-            animation: moveBackground 8s ease-in-out infinite;
-            
-            color: #e2e8f0;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
             overflow: hidden;
+            position: relative;
+        }
+
+        /* Background video ko poori screen par fix karne ke liye */
+        .bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.45); /* Video ko dark aesthetic look dene ke liye */
         }
 
         @keyframes fadeInUp {
@@ -59,6 +57,8 @@
             width: 100%;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.1);
             animation: fadeInUp 1s ease-out forwards;
+            position: relative;
+            z-index: 1;
         }
 
         .portfolio-card:hover {
@@ -128,3 +128,25 @@
             transform: translateY(-2px);
         }
     </style>
+</head>
+<body>
+
+    <!-- Background mein behta hua pani (Ocean Waves Video) -->
+    <video autoplay muted loop class="bg-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-sea-waves-tourist-resort-42240-large.mp4" type="video/mp4">
+    </video>
+
+    <!-- Portfolio Card -->
+    <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Profile" class="profile-img">
+        <h1>Aman</h1>
+        <div class="tagline">Visual Creator & Developer</div>
+        <p>Welcome to my digital space. Crafting clean, aesthetic minimalist web designs and visual projects with precision.</p>
+        
+        <div class="social-links">
+            <a href="https://github.com/amanarabab110-debug" target="_blank" class="btn">GitHub Profile</a>
+        </div>
+    </div>
+
+</body>
+</html>
