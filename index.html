@@ -12,6 +12,19 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Fluid Water Flow Animation */
+        @keyframes waterFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         body {
             min-height: 100vh;
             display: flex;
@@ -19,20 +32,11 @@
             align-items: center;
             padding: 20px;
             overflow: hidden;
-            position: relative;
-            background-color: #0b0f19;
-        }
-
-        /* Background Waterfall Video */
-        .bg-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            z-index: -1;
-            filter: brightness(0.45); /* Paani aur pahar saaf dikhein aur card bhi readable rahe */
+            
+            /* Deep cinematic water blue, teal, and dark night gradient */
+            background: linear-gradient(-45deg, #0284c7, #0f172a, #0369a1, #0e7490, #02233b);
+            background-size: 400% 400%;
+            animation: waterFlow 10s ease infinite;
         }
 
         @keyframes fadeInUp {
@@ -131,11 +135,6 @@
     </style>
 </head>
 <body>
-
-    <!-- Background Waterfall Video -->
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-waterfall-in-forest-2213-large.mp4" type="video/mp4">
-    </video>
 
     <div class="portfolio-card">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Profile" class="profile-img">
