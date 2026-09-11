@@ -12,6 +12,19 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Animated Water / Fluid Gradient Background */
+        @keyframes waterFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         body {
             min-height: 100vh;
             display: flex;
@@ -19,20 +32,11 @@
             align-items: center;
             padding: 20px;
             overflow: hidden;
-            position: relative;
-            background-color: #0b0f19; /* Fallback dark background agar video na chale */
-        }
-
-        /* Background video */
-        .bg-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            z-index: -1;
-            filter: brightness(0.4);
+            
+            /* Deep cinematic water blue and dark night lighting colors */
+            background: linear-gradient(-45deg, #0284c7, #0f172a, #0369a1, #1e293b, #0c4a6e);
+            background-size: 400% 400%;
+            animation: waterFlow 12s ease infinite;
         }
 
         @keyframes fadeInUp {
@@ -50,13 +54,13 @@
             background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            border: 1px solid rgba(56, 189, 248, 0.3);
             padding: 40px;
             border-radius: 20px;
             text-align: center;
             max-width: 450px;
             width: 100%;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.2);
             animation: fadeInUp 1s ease-out forwards;
             position: relative;
             z-index: 1;
@@ -64,7 +68,7 @@
 
         .portfolio-card:hover {
             transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(56, 189, 248, 0.35);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.4);
             transition: all 0.4s ease;
         }
 
@@ -131,11 +135,6 @@
     </style>
 </head>
 <body>
-
-    <!-- Updated video source with autoplay, muted, playsinline attributes -->
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
-    </video>
 
     <div class="portfolio-card">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Profile" class="profile-img">
