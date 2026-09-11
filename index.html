@@ -20,18 +20,19 @@
             padding: 20px;
             overflow: hidden;
             position: relative;
+            background-color: #0b0f19; /* Fallback dark background agar video na chale */
         }
 
-        /* Background video ko poori screen par fix karne ke liye */
+        /* Background video */
         .bg-video {
             position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             object-fit: cover;
             z-index: -1;
-            filter: brightness(0.45); /* Video ko dark aesthetic look dene ke liye */
+            filter: brightness(0.4);
         }
 
         @keyframes fadeInUp {
@@ -131,12 +132,11 @@
 </head>
 <body>
 
-    <!-- Background mein behta hua pani (Ocean Waves Video) -->
-    <video autoplay muted loop class="bg-video">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-sea-waves-tourist-resort-42240-large.mp4" type="video/mp4">
+    <!-- Updated video source with autoplay, muted, playsinline attributes -->
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
     </video>
 
-    <!-- Portfolio Card -->
     <div class="portfolio-card">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Profile" class="profile-img">
         <h1>Aman</h1>
