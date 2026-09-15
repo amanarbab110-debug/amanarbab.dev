@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adeel — BSIT Developer</title>
+<title>Arbab Aman — Visual Creator & Developer</title>
 <style>
   :root{
-    --bg: #0d1117;
-    --bg-alt: #12181f;
-    --ink: #e6edf3;
-    --muted: #8b98a5;
-    --line: #1f2937;
-    --accent: #5eead4;
-    --accent-dim: #1d4d47;
+    --bg: #090d16;
+    --bg-alt: #0f172a;
+    --ink: #f8fafc;
+    --muted: #94a3b8;
+    --line: #1e293b;
+    --accent: #38bdf8;
+    --accent-dim: #0369a1;
+    --purple: #a855f7;
     --mono: 'JetBrains Mono', 'Courier New', monospace;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
@@ -30,7 +31,7 @@
 
   ::selection{ background: var(--accent); color:#04120f; }
 
-  a{ color:inherit; }
+  a{ color:inherit; text-decoration: none; }
 
   .wrap{
     max-width: 760px;
@@ -42,8 +43,9 @@
   nav{
     position: sticky;
     top:0;
-    background: rgba(13,17,23,0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(9, 13, 22, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
     z-index: 10;
   }
@@ -58,6 +60,7 @@
     font-family: var(--mono);
     font-size: 15px;
     color: var(--accent);
+    font-weight: 700;
   }
   .navlinks{
     display:flex;
@@ -65,8 +68,8 @@
     font-size: 14px;
     color: var(--muted);
   }
-  .navlinks a{ text-decoration:none; transition: color .2s; }
-  .navlinks a:hover{ color: var(--ink); }
+  .navlinks a{ transition: color .2s; }
+  .navlinks a:hover{ color: var(--accent); }
 
   /* ---------- HERO ---------- */
   header.hero{
@@ -74,9 +77,10 @@
   }
   .eyebrow{
     font-family: var(--mono);
-    color: var(--accent);
+    color: var(--purple);
     font-size: 14px;
     margin-bottom: 18px;
+    font-weight: 600;
     opacity:0;
     animation: rise .6s ease forwards;
   }
@@ -88,6 +92,9 @@
     opacity:0;
     animation: rise .6s ease forwards;
     animation-delay: .1s;
+  }
+  h1 span {
+    color: var(--accent);
   }
   h1 .cursor{
     display:inline-block;
@@ -101,7 +108,7 @@
   .lede{
     font-size: 17px;
     color: var(--muted);
-    max-width: 520px;
+    max-width: 540px;
     margin: 0 0 32px;
     opacity:0;
     animation: rise .6s ease forwards;
@@ -117,20 +124,22 @@
   .btn{
     font-family: var(--mono);
     font-size: 14px;
-    padding: 10px 18px;
-    border-radius: 6px;
-    text-decoration:none;
+    padding: 10px 20px;
+    border-radius: 8px;
     display:inline-block;
-    transition: transform .15s ease, background .2s ease;
+    transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
   }
   .btn-primary{
-    background: var(--accent);
-    color: #04120f;
+    background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
   }
-  .btn-primary:hover{ transform: translateY(-2px); }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5); }
   .btn-ghost{
     border: 1px solid var(--line);
     color: var(--ink);
+    background: var(--bg-alt);
   }
   .btn-ghost:hover{ border-color: var(--accent); color: var(--accent); }
 
@@ -150,8 +159,9 @@
   .section-tag{
     font-family: var(--mono);
     font-size: 13px;
-    color: var(--accent);
+    color: var(--purple);
     margin: 0 0 12px;
+    font-weight: 600;
   }
   h2{
     font-size: 26px;
@@ -162,7 +172,7 @@
   /* ---------- ABOUT ---------- */
   .about-text{
     color: var(--muted);
-    max-width: 560px;
+    max-width: 580px;
   }
   .about-text strong{ color: var(--ink); font-weight: 600; }
 
@@ -174,29 +184,35 @@
   }
   .stack-item{
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 14px 16px;
     font-family: var(--mono);
     font-size: 13px;
     color: var(--muted);
     background: var(--bg-alt);
-    transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    transition: all .2s ease;
   }
   .stack-item:hover{
     border-color: var(--accent);
-    color: var(--ink);
+    color: var(--accent);
     transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.15);
   }
 
   /* ---------- PROJECTS ---------- */
   .project{
     border: 1px solid var(--line);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 24px;
     margin-bottom: 16px;
     background: var(--bg-alt);
     position: relative;
     overflow: hidden;
+    transition: transform .3s ease, border-color .3s ease;
+  }
+  .project:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    transform: translateY(-2px);
   }
   .project::before{
     content:"";
@@ -212,9 +228,10 @@
   .project h3{
     margin:0 0 6px;
     font-size: 18px;
+    color: var(--ink);
   }
   .project p{
-    margin:0 0 12px;
+    margin:0 0 14px;
     color: var(--muted);
     font-size: 14.5px;
   }
@@ -227,15 +244,16 @@
     font-family: var(--mono);
     font-size: 12px;
     color: var(--accent);
-    background: var(--accent-dim);
-    padding: 3px 9px;
-    border-radius: 4px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    padding: 3px 10px;
+    border-radius: 6px;
   }
 
   /* ---------- CONTACT ---------- */
   .contact-box{
     border: 1px solid var(--line);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 32px;
     background: var(--bg-alt);
     text-align:center;
@@ -248,15 +266,12 @@
     color: var(--muted);
     font-size: 13px;
     font-family: var(--mono);
+    border-top: 1px solid var(--line);
   }
 
   @media (max-width: 600px){
     .navlinks{ display:none; }
     header.hero{ padding: 70px 0 56px; }
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
   }
 </style>
 </head>
@@ -264,7 +279,7 @@
 
 <nav>
   <div class="wrap">
-    <div class="logo">adeel<span style="color:var(--muted)">.dev</span></div>
+    <div class="logo">arbab aman<span style="color:var(--purple)">.dev</span></div>
     <div class="navlinks">
       <a href="#about">about</a>
       <a href="#stack">stack</a>
@@ -276,12 +291,12 @@
 
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">bsit · batch 2k23</p>
-    <h1 id="typed-heading">Adeel builds things<br>for the web.<span class="cursor"></span></h1>
-    <p class="lede">Computer science student working on mobile apps and offline-first tools. Currently building an offline navigation app in Flutter.</p>
+    <p class="eyebrow">@arbab aman75 · visual creator & dev</p>
+    <h1>Crafting digital spaces & <span>visual experiences.</span><span class="cursor"></span></h1>
+    <p class="lede">Visual creator and frontend developer blending clean modern web aesthetics with dynamic motion and video edits.</p>
     <div class="cta-row">
-      <a href="#projects" class="btn btn-primary">See projects</a>
-      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      <a href="#projects" class="btn btn-primary">Explore Work</a>
+      <a href="https://github.com/amanarabab110-debug" target="_blank" class="btn btn-ghost">GitHub Profile</a>
     </div>
   </div>
 </header>
@@ -291,26 +306,25 @@
     <p class="section-tag">01 — about</p>
     <h2>Who I am</h2>
     <p class="about-text">
-      I'm a <strong>BSIT student</strong> learning to build software that actually holds up outside a classroom.
-      Right now that means offline-first mobile apps — maps that work without signal, navigation that doesn't
-      depend on a data plan. I like picking projects where the constraints force real engineering decisions.
+      I'm <strong>Arbab Aman</strong>, passionate about building sleek web portfolios and producing engaging visual content. 
+      I focus on clean CSS layouts, responsive design, and smooth user interactions that make digital projects stand out.
     </p>
   </div>
 </section>
 
 <section id="stack">
   <div class="wrap">
-    <p class="section-tag">02 — stack</p>
-    <h2>What I work with</h2>
+    <p class="section-tag">02 — stack & skills</p>
+    <h2>Tools I use</h2>
     <div class="stack-grid">
-      <div class="stack-item">Flutter</div>
-      <div class="stack-item">Dart</div>
-      <div class="stack-item">OpenStreetMap</div>
-      <div class="stack-item">SQLite</div>
-      <div class="stack-item">Python</div>
-      <div class="stack-item">Java</div>
-      <div class="stack-item">Git</div>
-      <div class="stack-item">REST APIs</div>
+      <div class="stack-item">HTML5 / CSS3</div>
+      <div class="stack-item">JavaScript</div>
+      <div class="stack-item">Git & GitHub</div>
+      <div class="stack-item">VS Code</div>
+      <div class="stack-item">CapCut</div>
+      <div class="stack-item">Video Editing</div>
+      <div class="stack-item">UI/UX Design</div>
+      <div class="stack-item">Responsive UI</div>
     </div>
   </div>
 </section>
@@ -318,23 +332,25 @@
 <section id="projects">
   <div class="wrap">
     <p class="section-tag">03 — projects</p>
-    <h2>Selected work</h2>
+    <h2>Featured work</h2>
 
     <div class="project">
-      <h3>Offline Navigation App</h3>
-      <p>A Flutter-based maps app with full offline search and turn-by-turn directions, built on OpenStreetMap data — starting with a pilot region in Hyderabad, Sindh.</p>
+      <h3>Cinematic Personal Portfolio</h3>
+      <p>A high-aesthetic, responsive portfolio website featuring fluid gradients, glassmorphism cards, and modern CSS animations hosted on GitHub Pages.</p>
       <div class="tags">
-        <span class="tag">Flutter</span>
-        <span class="tag">OSM</span>
-        <span class="tag">In progress</span>
+        <span class="tag">HTML5</span>
+        <span class="tag">CSS Animations</span>
+        <span class="tag">GitHub Pages</span>
       </div>
     </div>
 
     <div class="project">
-      <h3>[Your next project]</h3>
-      <p>Swap this card for your next build — a short line on what it does and why it exists is enough.</p>
+      <h3>Amanvisuals Hub</h3>
+      <p>Short-form video edits and dynamic social media content curated with trending music tracks and motion elements.</p>
       <div class="tags">
-        <span class="tag">Coming soon</span>
+        <span class="tag">Visual Editing</span>
+        <span class="tag">CapCut</span>
+        <span class="tag">Instagram Reels</span>
       </div>
     </div>
   </div>
@@ -343,28 +359,17 @@
 <section id="contact">
   <div class="wrap">
     <p class="section-tag">04 — contact</p>
-    <h2>Let's talk</h2>
+    <h2>Let's connect</h2>
     <div class="contact-box">
-      <p>Open to internships, collaborations, and interesting problems.</p>
-      <a href="mailto:you@example.com" class="btn btn-primary">Email me</a>
+      <p>Interested in collaborating or discussing web design and video creation?</p>
+      <a href="https://github.com/amanarabab110-debug" target="_blank" class="btn btn-primary">Visit GitHub</a>
     </div>
   </div>
 </section>
 
 <footer>
-  built by Adeel · 2026
+  built by Arbab Aman (arbab aman75) · 2026
 </footer>
-
-<script>
-  // Subtle typed-cursor blink is pure CSS; this just removes the cursor
-  // once the hero has finished its entrance so it doesn't blink forever distractingly.
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const cursor = document.querySelector('.cursor');
-      if (cursor) cursor.style.animationDuration = '1.2s';
-    }, 1500);
-  });
-</script>
 
 </body>
 </html>
