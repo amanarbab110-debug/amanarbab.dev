@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman | Portfolio</title>
+    <title>Arbab aman75 | Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -12,17 +12,11 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Fluid Water Flow Animation */
-        @keyframes waterFlow {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+        /* Fluid Animated Background */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         body {
@@ -32,70 +26,106 @@
             align-items: center;
             padding: 20px;
             overflow: hidden;
-            
-            /* Deep cinematic water blue, teal, and dark night gradient */
-            background: linear-gradient(-45deg, #0284c7, #0f172a, #0369a1, #0e7490, #02233b);
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #090d16, #0369a1);
             background-size: 400% 400%;
-            animation: waterFlow 10s ease infinite;
+            animation: gradientAnimation 15s ease infinite;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        /* Floating Card Animation */
+        @keyframes floatCard {
+            0%, 100% {
+                transform: translateY(0px);
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* Glowing Border Animation */
+        @keyframes borderGlow {
+            0%, 100% {
+                border-color: rgba(56, 189, 248, 0.4);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.2);
+            }
+            50% {
+                border-color: rgba(168, 85, 247, 0.8);
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(168, 85, 247, 0.4);
             }
         }
 
         .portfolio-card {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            padding: 40px;
-            border-radius: 20px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid rgba(56, 189, 248, 0.4);
+            padding: 45px 30px;
+            border-radius: 24px;
             text-align: center;
-            max-width: 450px;
+            max-width: 440px;
             width: 100%;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.2);
-            animation: fadeInUp 1s ease-out forwards;
+            animation: floatCard 6s ease-in-out infinite, borderGlow 6s ease-in-out infinite;
             position: relative;
             z-index: 1;
         }
 
         .portfolio-card:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.4);
+            animation-play-state: paused;
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 45px rgba(56, 189, 248, 0.6);
             transition: all 0.4s ease;
         }
 
+        /* Profile Image Pulsing Ring */
+        .profile-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px auto;
+        }
+
         .profile-img {
-            width: 110px;
-            height: 110px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #38bdf8;
-            margin-bottom: 20px;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-            transition: transform 0.5s ease;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
         }
 
-        .portfolio-card:hover .profile-img {
-            transform: rotate(5deg) scale(1.05);
+        .profile-container::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #38bdf8, #a855f7, #38bdf8);
+            z-index: 1;
+            opacity: 0.7;
+            animation: gradientAnimation 4s linear infinite;
+            filter: blur(4px);
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 26px;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             letter-spacing: 0.5px;
         }
 
+        .username-tag {
+            font-size: 14px;
+            color: #a855f7;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
         .tagline {
-            font-size: 15px;
+            font-size: 14px;
             color: #38bdf8;
             margin-bottom: 20px;
             font-weight: 500;
@@ -108,42 +138,45 @@
             margin-bottom: 25px;
         }
 
-        .social-links {
+        .btn-container {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
         }
 
         .btn {
             display: inline-block;
-            padding: 10px 22px;
-            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            padding: 12px 26px;
+            background: linear-gradient(135deg, #0284c7, #a855f7);
             color: #ffffff;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-size: 14px;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
             transition: all 0.3s ease;
         }
 
         .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(56, 189, 248, 0.6);
             opacity: 0.95;
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
-            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
 
     <div class="portfolio-card">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Profile" class="profile-img">
-        <h1>Aman</h1>
-        <div class="tagline">Visual Creator & Developer</div>
-        <p>Welcome to my digital space. Crafting clean, aesthetic minimalist web designs and visual projects with precision.</p>
+        <div class="profile-container">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Profile" class="profile-img">
+        </div>
+        <h1>Arbab Aman</h1>
+        <div class="username-tag">@arbab aman75</div>
+        <div class="tagline">Visual Creator & Web Developer</div>
+        <p>Crafting sleek, modern, and fully animated digital experiences with a touch of cinematic style.</p>
         
-        <div class="social-links">
-            <a href="https://github.com/amanarabab110-debug" target="_blank" class="btn">GitHub Profile</a>
+        <div class="btn-container">
+            <a href="https://github.com/amanarabab110-debug" target="_blank" class="btn">Explore GitHub</a>
         </div>
     </div>
 
